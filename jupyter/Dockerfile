@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 # Update and install packages
 RUN apt -y update && \
     apt -y install libpq-dev && \
-    pip install --no-cache-dir pandas
+    pip install --no-cache-dir pandas pymongo
 
 # Expose port
 EXPOSE 8888
