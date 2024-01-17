@@ -1,4 +1,3 @@
 # JUPYTER
 docker build -t jupyter-server ./jupyter
 docker run --name jupyter-server -p 8888:8888 -v $(pwd)/jupyter/notebooks:/usr/src/app  jupyter-server
-
