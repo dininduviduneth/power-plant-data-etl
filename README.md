@@ -65,5 +65,51 @@ First the following docker network needs to be created with two containers:
 
 ![Architecture](images/DP4mS_architecture.png)
 
+Once the containers containing the servers are up and running, the script available in `jupyter/notebooks/gpp-etl.ipynb` will run the ETL process.
+
+The loaded data (in MongoDB) can be access through any notebook created in the Juoyter server and you can start off with `jupyter/notebooks/your-analysis.ipynb`.
+
 ## How to Run
 
+To successully run this project, follow the steps given below.
+
+1. Install Docker in your PC or VM
+
+* If you are using Windows, Mac or Linux, you can do this by installing [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+* If you are using a VM or other platforms refer [here](https://docs.docker.com/engine/install/).
+
+NOTE: You will have to install Docker Compose separately via --> [Installing Docker Compose](https://docs.docker.com/compose/install/)
+
+NOTE: Make sure to check if Docker Engine is running before starting the project by either checking Docker Desktop or by using `docker info` command.
+
+2. Clone this repository using:
+
+`git clone https://github.com/dininduviduneth/power-plant-data-etl.git`
+
+3. Navigate into the root of the repository in your machine and run the following commands in the terminal.
+
+`docker-compose up --build` - This will build and start the two containers and navigate into the Jupyter server terminal.
+
+Copy the URL shown below (in the case of your terminal) and paste it in your browser to access the Jupyter Server UI.
+
+![Jupyter-Server](images/jupyter-server.png)
+
+If you check in a different terminal using `docker ps -a`, you should see the two containers running as follows.
+
+![docker ps](images/docker-ps.png)
+
+Use `gpp-etl.ipynb` file in Jupyter Server UI to run the ETL. Once the data is loaded into MongoDB, you can use any notebook to access it's data and play around with it.
+
+## Ports Bindings
+
+The port `8888` which the Jupyter server is using is bound to `localhost:8888` which is why the notebooks can be accessed by the browser in your local machine.
+
+The port `27017` used by MongoDB is bound to `localhost:27017` which can be used to access the database using your terminal or a tool like Studio 3T.
+
+## Shutting Down
+
+To shut down the containers, simply use `docker-compose down` which will immediately shut down and delete the containers.
+
+To clean up the images, you can use `docker rmi $(docker images -aq)`.
+
+# Enjoy pipelining! :)
