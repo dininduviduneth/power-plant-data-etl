@@ -6,17 +6,17 @@ This project is an attempt to learn to build _#DataPipelinesFromScratch_ using t
 2. Jupyter Server and PyMongo
 3. MongoDB
 
-The use case is very basic and could be easily performed using a different approach; but since the objective is to get hands-on learning on different data engineering tools, the following approach is used.
+The use case is very basic and could be easily performed using a simpler approach; but since the objective is to get hands-on learning on different data engineering tools, the following approach is used.
 
 ## Goal
 
 The goal is to extract [_Global Power Plant Data_](https://datasets.wri.org/dataset/globalpowerplantdatabase) data from a CSV file, do simple transformations to data fields and load them into a MongoDB server.
 
-The CSV file at `data/global_power_plant_database.csv` which is the datasoure has the following structure:
+The CSV file at `data/global_power_plant_database.csv` which is the datasoure, has the following structure:
 
 ![CSV File](images/csv-image.png)
 
-The format we are going to transform the data to and load them to MongoDB:
+The format we are going to transform the data to and load to MongoDB:
 
 ```
 {
@@ -67,7 +67,7 @@ First the following docker network needs to be created with two containers:
 
 Once the containers containing the servers are up and running, the script available in `jupyter/notebooks/gpp-etl.ipynb` will run the ETL process.
 
-The loaded data (in MongoDB) can be access through any notebook created in the Juoyter server and you can start off with `jupyter/notebooks/your-analysis.ipynb`.
+The loaded data (in MongoDB) can be accessed through any notebook created in the Juoyter server and you can start off with `jupyter/notebooks/your-analysis.ipynb`.
 
 ## How to Run
 
@@ -98,9 +98,9 @@ If you check in a different terminal using `docker ps -a`, you should see the tw
 
 ![docker ps](images/docker-ps.png)
 
-Use `gpp-etl.ipynb` file in Jupyter Server UI to run the ETL. Once the data is loaded into MongoDB, you can use any notebook to access it's data and play around with it.
+Use the script in `gpp-etl.ipynb` file in Jupyter Server UI to run the ETL. Once the data is loaded into MongoDB, you can use any notebook to access it's data and play around with it.
 
-## Ports Bindings
+## Port Bindings
 
 The port `8888` which the Jupyter server is using is bound to `localhost:8888` which is why the notebooks can be accessed by the browser in your local machine.
 
