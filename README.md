@@ -63,7 +63,10 @@ First the following docker network needs to be created with two containers:
 1. Container 1 - carrying our Jupyter server and our data file
 2. Container 2 - carrying our MongoDB server
 
-![Architecture](images/DP4mS_architecture.png)
+<div style="text-align:center">
+  <img src="images/DP4mS_architecture.png" alt="Architecture">
+</div>
+
 
 Once the containers containing the servers are up and running, the script available in `jupyter/notebooks/gpp-etl.ipynb` will run the ETL process.
 
